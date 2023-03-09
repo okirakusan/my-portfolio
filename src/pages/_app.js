@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import { useState } from "react";
-import { Header } from "@/component/layout/Header";
-import { Main } from "@/component/layout/Main";
+import { Main } from "component/layout/Main.jsx";
+import { Header } from "component/layout/Header";
 
 function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
