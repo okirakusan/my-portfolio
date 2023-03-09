@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import { useState } from "react";
-import { Main } from "component/layout/Main.jsx";
+import { Main } from "component/layout/Main";
 import { Header } from "component/layout/Header";
 
 function MyApp({ Component, pageProps }) {
