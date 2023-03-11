@@ -9,7 +9,7 @@ export const config = {
 
 export function middleware(req) {
   const basicAuth = req.headers.get("authorization");
-  const url = req.nextUrl;
+  const url = NextRequest.nextUrl;
 
   if (basicAuth) {
     const auth = basicAuth.split(" ")[1];
