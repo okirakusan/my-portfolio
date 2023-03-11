@@ -7,9 +7,11 @@ export const config = {
   matcher: ["/:path*", "/test/:path*"],
 };
 
-export function middleware(req) {
+export function middleware(req: NextRequest) {
+  const url = req.nextUrl;
+  if (!url.pathname.startsWith("/")) return;
+
   const basicAuth = req.headers.get("authorization");
-  const url = NextRequest.nextUrl;
 
   if (basicAuth) {
     const auth = basicAuth.split(" ")[1];
