@@ -8,7 +8,7 @@ matcher : middleware.jsを適用する（呼び出す）パスを指定する
 // };
 
 export const middleware = (req: NextRequest) => {
-  if (req.nextUrl.pathname.startsWith("/auth")) {
+  if (req.nextUrl.pathname.startsWith("/")) {
     const basicAuth = req.headers.get("authorization");
 
     if (basicAuth) {
