@@ -19,8 +19,8 @@ export default function Home() {
   return (
     <>
       <section>
-        <div className="text-center p-10 py-10">
-          <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
+        <div className="text-center px-10 py-20">
+          <h2 className="text-5xl py-4 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
             Dimitri Marco
           </h2>
           <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
