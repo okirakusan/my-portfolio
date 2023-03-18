@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="public/favicon.ico" />
       </Head>
-      <Header onClick={() => setDarkMode(!darkMode)} />
+      <Header handleClick={() => setDarkMode(!darkMode)} />
       <Main>
         <Component {...pageProps} />
       </Main>
