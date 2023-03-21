@@ -38,9 +38,9 @@ export default function Home() {
   }
   return (
     <>
-      <section className="flex justify-center">
-        <div className="flex-col justify-center h-200 items-center w-full max-w-lg ">
-          <div className="p-4 pt-28 lg:pt-36 bg-gray-100 rounded-t-lg w-full  overflow-scroll">
+      <section className="flex justify-center min-h-screen">
+        <div className="flex-col justify-center  items-center w-full ">
+          <div className="p-4 h-2/3 bg-gray-100 rounded-t-lg w-full  overflow-scroll">
             <span className="text-center block font-medium text-2xl border-b-2 border-indigo-400 pb-4 mb-3">
               ChatGPT Clone
             </span>
