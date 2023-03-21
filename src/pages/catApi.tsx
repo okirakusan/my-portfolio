@@ -76,7 +76,7 @@ const CatApi: NextPage<IndexPageProps> = ({ initialCatImageUrl }) => {
     <>
       <section>
         <div className="min-h-screen flex-col justify-center text-center dark:text-white">
-          <div className="pt-28 lg:pt-36 mb-7 ">
+          <div className="mb-7 ">
             <h1>猫画像アプリ👋</h1>
           </div>
           <div className="relative h-96 mb-5">
