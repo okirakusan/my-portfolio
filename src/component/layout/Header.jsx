@@ -3,7 +3,7 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 
 const NAV_ITEMS = [
   { href: "/catApi", label: "猫画像API" },
-  { href: "/catApi", label: "猫画像API" },
+  { href: "/chatGpt-clone", label: "ChatGPTクローン" },
 ];
 
 export const Header = (props) => {
