@@ -40,9 +40,9 @@ export default function Home() {
     <>
       <section className="flex justify-center min-h-screen">
         <div className="flex-col justify-center  items-center w-full ">
-          <div className="p-4 h-2/3 bg-gray-100 rounded-t-lg w-full  overflow-scroll">
+          <div className="p-4 h-80 lg:h-2/3 bg-gray-100 rounded-t-lg w-full  overflow-scroll">
             <span className="text-center block font-medium text-2xl border-b-2 border-indigo-400 pb-4 mb-3">
-              ChatGPT Clone
+              ChatBot-Gpt
             </span>
             {messages.map((message, index) => (
               <div
@@ -64,13 +64,13 @@ export default function Home() {
             ))}
           </div>
           <form onSubmit={handleSubmit} className="w-full">
-            <div className="flex items-center p-4 bg-gray-100 rounded-b-lg w-full">
-              <input
-                type="text"
+            <div className="flex items-center p-2 sm:p-4 bg-gray-100 rounded-b-lg w-full">
+              <textarea
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
-                className="flex-1 mr-2 py-2 px-4 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-indigo-400"
+                className="flex-1 mr-1 sm:mr-2  sm:py-2 sm:px-4 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-indigo-400 "
                 placeholder="メッセージを入力"
+                rows={1}
               />
               <button
                 type="submit"

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "ハンバーグ定食",
+    "price": 980,
+    "ordered": false
+  },
+  {
+    "id": 2,
+    "name": "からあげ定食",
+    "price": 880,
+    "ordered": false
+  },
+  {
+    "id": 3,
+    "name": "ミートソーススパゲッティ",
+    "price": 750,
+    "ordered": false
+  },
+  {
+    "id": 4,
+    "name": "チキン南蛮定食",
+    "price": 880,
+    "ordered": false
+  },
+  {
+    "id": 5,
+    "name": "カルボナーラスパゲッティ",
+    "price": 820,
+    "ordered": false
+  },
+  {
+    "id": 6,
+    "name": "チーズインハンバーグ定食",
+    "price": 1080,
+    "ordered": false
+  },
+  {
+    "id": 7,
+    "name": "ポークソテー定食",
+    "price": 940,
+    "ordered": false
+  },
+  {
+    "id": 8,
+    "name": "野菜たっぷりカレー",
+    "price": 880,
+    "ordered": false
+  },
+  {
+    "id": 9,
+    "name": "海鮮フライ定食",
+    "price": 1280,
+    "ordered": false
+  },
+  {
+    "id": 10,
+    "name": "ラザニア",
+    "price": 820,
+    "ordered": false
+  }
+]
