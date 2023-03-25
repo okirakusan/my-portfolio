@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "ハンバーグステーキ",
+    "price": 1200,
+    "ordered": false
+  },
+  {
+    "id": 2,
+    "name": "カルビ丼",
+    "price": 1300,
+    "ordered": false
+  },
+  {
+    "id": 3,
+    "name": "チキン南蛮",
+    "price": 1000,
+    "ordered": false
+  },
+  {
+    "id": 4,
+    "name": "ビーフシチュー",
+    "price": 1400,
+    "ordered": false
+  },
+  {
+    "id": 5,
+    "name": "ハンバーガー",
+    "price": 900,
+    "ordered": false
+  },
+  {
+    "id": 6,
+    "name": "エビフライ定食",
+    "price": 1300,
+    "ordered": false
+  },
+  {
+    "id": 7,
+    "name": "ポークカツ丼",
+    "price": 1200,
+    "ordered": false
+  },
+  {
+    "id": 8,
+    "name": "オムライス",
+    "price": 1000,
+    "ordered": false
+  },
+  {
+    "id": 9,
+    "name": "焼きそば",
+    "price": 800,
+    "ordered": false
+  },
+  {
+    "id": 10,
+    "name": "天丼",
+    "price": 1400,
+    "ordered": false
+  }
+]
