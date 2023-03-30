@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <section>
-        <div className="text-center px-10 py-20">
+        <div className="text-center px-1 py-2 sm:px-10 sm:py-20 overscroll-auto">
           <h2 className="text-5xl mt-4 py-4 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
             Dimitri Marco
           </h2>

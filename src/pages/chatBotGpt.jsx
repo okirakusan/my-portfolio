@@ -70,7 +70,7 @@ export default function Home() {
                 onChange={(event) => setMessage(event.target.value)}
                 className="flex-1 mr-1 sm:mr-2  sm:py-2 sm:px-4 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-indigo-400 "
                 placeholder="メッセージを入力"
-                rows={1}
+                rows={2}
               />
               <button
                 type="submit"
