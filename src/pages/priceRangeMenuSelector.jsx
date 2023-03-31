@@ -8,7 +8,7 @@ const MenuApp = () => {
   const [selectedMenu, setSelectedMenu] = useState([]);
   const [orderedItems, setOrderedItems] = useState([]);
 
-  const clearMenu = () => {
+  useEffect(() => {
     const filteredMenu = menuData.filter((item) => item.price <= price);
     let selectedItems = [];
 
@@ -23,12 +23,52 @@ const MenuApp = () => {
       selectedItems.push(availableItems[randomIndex]);
     }
 
+    let totalPrice = 0;
+    selectedItems.forEach((item) => {
+      totalPrice += item.price;
+    });
+    if (totalPrice > price) {
+      selectedItems.pop();
+    }
+
+    setSelectedMenu(selectedItems);
+  }, [price]);
+
+  const handlePriceChange = (e) => {
+    setPrice(parseInt(e.target.value));
+  };
+
+  const clearMenu = () => {
+    const filteredMenu = menuData.filter((item) => item.price <= price);
+    let selectedItems = [];
+
+    while (
+      selectedItems.reduce((total, item) => total + item.price, 0) < price
+    ) {
+      const availableItems = filteredMenu.filter(
+        (item) => !selectedItems.includes(item)
+      );
+      if (availableItems.length === 0) break;
+      const randomIndex = Math.floor(Math.random() * availableItems.length);
+      selectedItems.push(availableItems[randomIndex]);
+
+      let totalPrice = 0;
+      selectedItems.forEach((item) => {
+        totalPrice += item.price;
+      });
+      if (totalPrice > price) {
+        selectedItems.pop();
+      }
+    }
+
     setSelectedMenu(selectedItems);
   };
 
   const handleOrder = (item) => {
     item.ordered = true;
-    setTotal(total + item.price);
+    if (total + item.price <= price) {
+      setTotal(total + item.price);
+    }
     setOrderedItems([...orderedItems, item]);
   };
 
@@ -52,33 +92,11 @@ const MenuApp = () => {
     setOrderedItems([]);
   };
 
-  const handlePriceChange = (e) => {
-    setPrice(parseInt(e.target.value));
-  };
-
-  useEffect(() => {
-    const filteredMenu = menuData.filter((item) => item.price <= price);
-    let selectedItems = [];
-
-    while (
-      selectedItems.reduce((total, item) => total + item.price, 0) < price
-    ) {
-      const availableItems = filteredMenu.filter(
-        (item) => !selectedItems.includes(item)
-      );
-      if (availableItems.length === 0) break;
-      const randomIndex = Math.floor(Math.random() * availableItems.length);
-      selectedItems.push(availableItems[randomIndex]);
-    }
-
-    setSelectedMenu(selectedItems);
-  }, [price]);
-
   return (
     <>
       <section className=" pb-40 dark:text-white h-2/4">
         <h1 className="text-3xl font-bold mb-8 text-center">
-          メニューをランダムに選んでくれるアプリ
+          メニューをランダムに選ぶアプリ
         </h1>
         <button
           onClick={clearMenu}
@@ -98,9 +116,12 @@ const MenuApp = () => {
             onChange={handlePriceChange}
             className="border border-gray-400 rounded p-2 w-32 dark:text-black"
           />
-          <p>※1500円で全メニューからランダムに取得できます</p>
+          <span>円</span>
+          <p>※設定金額でおさまるメニューの組み合わせをランダムに表示します。</p>
+          <p>※メニューの種類は10品ございます。</p>
+          <p>※メニュー単一での最低価格は800円、最高価格は1400円です。</p>
         </form>
-        <ul className="grid gap-4 grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {selectedMenu.map((item) => (
             <li key={item.id} className="border border-gray-400 p-4">
               <div className="font-bold mb-2">{item.name}</div>
@@ -131,7 +152,7 @@ const MenuApp = () => {
               return (
                 <li
                   key={item.id}
-                  className="border border-gray-400 p-4 bg-yellow-300 text-black"
+                  className="border border-gray-400 p-4 bg-yellow-300 text-red font-bold"
                 >
                   <div className="flex justify-between items-center">
                     <div className="font-bold mb-2">{item.name}</div>
