@@ -8,80 +8,54 @@ const MenuApp = () => {
   const [selectedMenu, setSelectedMenu] = useState([]);
   const [orderedItems, setOrderedItems] = useState([]);
 
-  useEffect(() => {
-    const filteredMenu = menuData.filter((item) => item.price <= price);
+  const calculateMenu = (menuData, price) => {
+    let availableItems = menuData.filter((item) => item.price <= price);
     let selectedItems = [];
+    let totalPrice = 0;
 
-    while (
-      selectedItems.reduce((total, item) => total + item.price, 0) < price
-    ) {
-      const availableItems = filteredMenu.filter(
-        (item) => !selectedItems.includes(item)
-      );
-      if (availableItems.length === 0) break;
+    while (availableItems.length > 0 && totalPrice < price) {
       const randomIndex = Math.floor(Math.random() * availableItems.length);
-      selectedItems.push(availableItems[randomIndex]);
+      const selectedItem = availableItems.splice(randomIndex, 1)[0];
+      selectedItems.push(selectedItem);
+      totalPrice += selectedItem.price;
     }
 
-    let totalPrice = 0;
-    selectedItems.forEach((item) => {
-      totalPrice += item.price;
-    });
     if (totalPrice > price) {
       selectedItems.pop();
     }
 
-    setSelectedMenu(selectedItems);
+    return selectedItems;
+  };
+
+  useEffect(() => {
+    setSelectedMenu(calculateMenu(menuData, price));
   }, [price]);
 
   const handlePriceChange = (e) => {
     setPrice(parseInt(e.target.value));
+    setSelectedMenu(calculateMenu(menuData, parseInt(e.target.value)));
   };
 
   const clearMenu = () => {
-    const filteredMenu = menuData.filter((item) => item.price <= price);
-    let selectedItems = [];
-
-    while (
-      selectedItems.reduce((total, item) => total + item.price, 0) < price
-    ) {
-      const availableItems = filteredMenu.filter(
-        (item) => !selectedItems.includes(item)
-      );
-      if (availableItems.length === 0) break;
-      const randomIndex = Math.floor(Math.random() * availableItems.length);
-      selectedItems.push(availableItems[randomIndex]);
-
-      let totalPrice = 0;
-      selectedItems.forEach((item) => {
-        totalPrice += item.price;
-      });
-      if (totalPrice > price) {
-        selectedItems.pop();
-      }
-    }
-
-    setSelectedMenu(selectedItems);
+    setSelectedMenu(calculateMenu(menuData, price));
   };
 
   const handleOrder = (item) => {
-    item.ordered = true;
-    if (total + item.price <= price) {
-      setTotal(total + item.price);
-    }
-    setOrderedItems([...orderedItems, item]);
+    setTotal(total + item.price);
+    setOrderedItems((prevItems) => [...prevItems, item]);
   };
 
   const addOneMore = (item) => {
     setTotal(total + item.price);
-    setOrderedItems([...orderedItems, item]);
+    setOrderedItems((prevItems) => [...prevItems, item]);
   };
 
   const clearOne = (item) => {
-    const newItems = [...orderedItems];
-    const index = newItems.findIndex((i) => i.id === item.id);
+    const index = orderedItems.findIndex((i) => i.id === item.id);
     if (index !== -1) {
-      const removedItem = newItems.splice(index, 1)[0];
+      const removedItem = orderedItems[index];
+      const newItems = [...orderedItems];
+      newItems.splice(index, 1);
       setTotal(total - removedItem.price);
       setOrderedItems(newItems);
     }
