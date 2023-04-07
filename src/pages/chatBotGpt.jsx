@@ -1,13 +1,6 @@
 import { IoSend } from "react-icons/io5";
-import { BeatLoader } from "react-spinners/BeatLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 import React from "react";
-import { Configuration, OpenAIApi } from "openai";
-
-const configuration = new Configuration({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(configuration);
 
 export default function ChatBotGpt(props) {
   const { message, setMessage, isLoading, HandleSubmit, Messages } = props;
