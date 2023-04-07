@@ -4,10 +4,12 @@ import { useState } from "react";
 import { Main } from "component/layout/Main";
 import { Header } from "component/layout/Header";
 import { usePriceRangeMenuSelector } from "component/hooks/usePriceRangeMenuSelector";
+import { useChatBotGpt } from "component/hooks/useChatBotGpt";
 
 function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
   const counter = usePriceRangeMenuSelector();
+  const chat = useChatBotGpt();
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -19,7 +21,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Header handleClick={() => setDarkMode(!darkMode)} />
       <Main>
-        <Component {...pageProps} {...counter} />
+        <Component {...pageProps} {...counter} {...chat} />
       </Main>
     </div>
   );

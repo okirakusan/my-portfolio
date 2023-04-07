@@ -1,41 +1,17 @@
-import { useState } from "react";
 import { IoSend } from "react-icons/io5";
-import BeatLoader from "react-spinners/BeatLoader";
-// import openai from "openai";
+import { BeatLoader } from "react-spinners/BeatLoader";
+import React from "react";
 import { Configuration, OpenAIApi } from "openai";
 
-export default function Home() {
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+const configuration = new Configuration({
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+});
 
-  const configuration = new Configuration({
-    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-  });
+const openai = new OpenAIApi(configuration);
 
-  const openai = new OpenAIApi(configuration);
+export default function ChatBotGpt(props) {
+  const { message, setMessage, isLoading, HandleSubmit, Messages } = props;
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    if (!message) return;
-
-    setIsLoading(true);
-    const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      // prompt: message,
-      messages: [{ role: "user", content: message }],
-      // max_tokens: 256,
-    });
-    setIsLoading(false);
-
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { sender: "user", text: message },
-      { sender: "bot", text: response.data.choices[0].message?.content },
-    ]);
-
-    setMessage("");
-  }
   return (
     <>
       <section className="flex justify-center min-h-screen">
@@ -44,26 +20,9 @@ export default function Home() {
             <span className="text-center block font-medium text-2xl border-b-2 border-indigo-400 pb-4 mb-3">
               ChatBot-Gpt
             </span>
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`flex ${
-                  message.sender === "user" ? "justify-end" : "justify-start"
-                } mb-2`}
-              >
-                <div
-                  className={`p-2 rounded-lg ${
-                    message.sender === "user"
-                      ? "bg-indigo-400 text-white"
-                      : "bg-gray-200"
-                  }`}
-                >
-                  {message.text}
-                </div>
-              </div>
-            ))}
+            {Messages}
           </div>
-          <form onSubmit={handleSubmit} className="w-full">
+          <form onSubmit={HandleSubmit} className="w-full">
             <div className="flex items-center p-2 sm:p-4 bg-gray-100 rounded-b-lg w-full">
               <textarea
                 value={message}
