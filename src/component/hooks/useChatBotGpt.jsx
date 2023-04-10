@@ -23,7 +23,7 @@ export const useChatBotGpt = () => {
       model: "gpt-3.5-turbo",
       // prompt: message,
       messages: [{ role: "user", content: message }],
-      // max_tokens: 256,
+      max_tokens: 256,
     });
     setIsLoading(false);
 
