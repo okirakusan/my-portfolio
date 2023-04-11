@@ -38,13 +38,14 @@
     - middleware.ts（ホームページに BASIC 認証をかけるためのファイル）  
   
   
-### 使用している言語  
+### 使用している言語、記法 
   
   
 - html/css  
 - javaScript  
 - typeScript  
 - tailWindCss  
+- .js/.ts/.jsx/.tsx/.json/.env/.gitignore/.md  
   
   
 ## アプリの詳細  
