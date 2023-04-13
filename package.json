@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "firebase": "^9.10.0",
     "latest": "^0.2.0",
     "moment": "^2.29.4",
     "next": "^12.3.4",
+    "nodemailer": "^6.9.1",
     "openai": "^3.2.1",
     "react": "18.2.0",
+    "react-bootstrap": "^2.7.3",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-spinners": "^0.13.8",
@@ -23,6 +26,7 @@
     "semantic-ui-react": "^2.1.4"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.7",
     "@types/react": "18.0.28",
     "autoprefixer": "^10.4.12",
     "eslint": "8.24.0",

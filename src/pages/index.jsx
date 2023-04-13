@@ -1,8 +1,3 @@
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillYoutube,
-} from "react-icons/ai";
 import deved from "/public/dev-ed-wave.png";
 import code from "/public/code.png";
 import design from "/public/design.png";
@@ -14,6 +9,7 @@ import web3 from "/public/web3.png";
 import web4 from "/public/web4.png";
 import web5 from "/public/web5.png";
 import web6 from "/public/web6.png";
+import { Footer } from "component/layout/Footer";
 
 export default function Home() {
   return (
@@ -21,20 +17,16 @@ export default function Home() {
       <section>
         <div className="text-center px-1 py-2 sm:px-10 sm:py-20 overscroll-auto">
           <h2 className="text-5xl mt-4 py-4 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
-            Dimitri Marco
+            原田 智浩
           </h2>
           <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
-            Developer and designer.
+            フロントエンジニア志望
           </h3>
           <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-            Freelancer providing services for programming and design content
-            needs. Join me down below and let&apos;s get cracking!
+            ご覧いただきありがとうございます。
+            IOTやAIの拡張性に魅力を感じエンジニアを目指して独学をしております。
+            ご縁があればどうぞよろしくお願い致します！
           </p>
-          <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-            <AiFillTwitterCircle />
-            <AiFillLinkedin />
-            <AiFillYoutube />
-          </div>
           <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
             <Image src={deved} layout="fill" objectFit="cover" alt="a" />
           </div>
@@ -181,6 +173,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
