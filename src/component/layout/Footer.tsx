@@ -1,19 +1,10 @@
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
-import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState, useRef } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { useState, useRef } from "react";
 
 export const Footer = () => {
+  const [showPopup, setShowPopup] = useState(false);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertVariant, setAlertVariant] = useState<"success" | "danger">(
-    "success"
-  );
-  const [alertMessage, setAlertMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,87 +24,90 @@ export const Footer = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then(async (res) => {
+    }).then((res) => {
       if (res.status === 200) {
         console.log("送信に成功しました");
-        setAlertVariant("success");
-        setAlertMessage("メールを送信しました");
-      } else {
-        setAlertVariant("danger");
-        setAlertMessage("メールの送信に失敗しました");
+        setShowPopup(true);
+        nameRef.current!.value = ""; // フォームの入力内容をクリアする
+        emailRef.current!.value = "";
+        messageRef.current!.value = "";
       }
-      setShowAlert(true);
-
-      // clear form fields after submit
-      nameRef.current!.value = "";
-      emailRef.current!.value = "";
-      messageRef.current!.value = "";
     });
   };
 
   return (
     <>
-      <div className="container mt-5 ">
-        <h2 className="mb-3">Next.jsでメール送信</h2>
-        <Form
-          onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-        >
+      <footer className="container mt-5 dark:text-white">
+        <h2 className="mb-3 text-3xl">お問い合わせ</h2>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-3">
-            <label className="form-label" htmlFor="name">
+            <label
+              className="block text-gray-700 dark:text-white text-sm font-bold mb-2"
+              htmlFor="name"
+            >
               お名前
             </label>
             <input
-              className="form-control"
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               id="name"
               required
               ref={nameRef}
-              name="name"
-              autoComplete="name"
             />
           </div>
           <div className="mb-3">
-            <label className="form-label" htmlFor="email">
+            <label
+              className="block text-gray-700 dark:text-white text-sm font-bold mb-2"
+              htmlFor="email"
+            >
               メールアドレス
             </label>
             <input
-              className="form-control"
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="email"
               id="email"
               required
               ref={emailRef}
-              name="email"
-              autoComplete="email"
             />
           </div>
           <div className="mb-3">
-            <label className="form-label" htmlFor="message">
+            <label
+              className="block text-gray-700 dark:text-white text-sm font-bold mb-2"
+              htmlFor="message"
+            >
               メッセージ
             </label>
             <textarea
-              className="form-control"
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="message"
               required
               ref={messageRef}
-              name="message"
-              autoComplete="off"
             />
           </div>
-          <Button className="btn btn-danger" type="submit">
-            メール送信
-          </Button>
-        </Form>
-        {showAlert && (
-          <Alert
-            variant={alertVariant}
-            className="mt-3"
-            onClose={() => setShowAlert(false)}
-            dismissible
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            type="submit"
           >
-            {alertMessage}
-          </Alert>
+            メール送信
+          </button>
+        </form>
+        {showPopup && (
+          <div className="fixed top-0 right-0 bottom-0 left-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-4 rounded shadow-lg">
+              <p className="text-xl font-bold mb-2 text-black">送信完了！</p>
+              <p className="text-black">
+                お問い合わせいただきありがとうございます。
+              </p>
+              <button
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
+                onClick={() => setShowPopup(false)}
+              >
+                閉じる
+              </button>
+            </div>
+          </div>
         )}
-      </div>
+      </footer>
     </>
   );
 };
