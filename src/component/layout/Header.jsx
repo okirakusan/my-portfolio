@@ -58,7 +58,7 @@ export const Header = (props) => {
     >
       <nav className="md:mb-4 lg:mb-6 flex justify-between items-center ">
         <Link href="/">
-          <h1 className="relative translate-y-1 font-burtons text-sm sm:text-3xl cursor-pointer">
+          <h1 className="relative translate-y-1 hover:opacity-60 font-burtons text-sm sm:text-3xl cursor-pointer">
             HOME
           </h1>
         </Link>
@@ -66,14 +66,14 @@ export const Header = (props) => {
           <li>
             <BsFillMoonStarsFill
               onClick={props.handleClick}
-              className=" cursor-pointer text-lg sm:text-3xl md:mr-4"
+              className="hover:opacity-60 cursor-pointer text-lg sm:text-3xl md:mr-4"
             />
           </li>
           {NAV_ITEMS.map((item) => {
             return (
               <li key={item.href} className="hidden sm:block">
                 <Link href={item.href}>
-                  <a className="text-xs sm:text-xl cursor-pointer bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-2 py-1 sm:px-4 sm:py-2 border-none rounded-md ml-1 sm:ml-4 lg:ml-8">
+                  <a className="hover:underline hover:opacity-80 text-xs sm:text-xl cursor-pointer bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-2 py-1 sm:px-4 sm:py-2 border-none rounded-md ml-1 sm:ml-4 lg:ml-8">
                     {item.label}
                   </a>
                 </Link>
