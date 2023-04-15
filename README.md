@@ -55,7 +55,7 @@
 ### 「[猫画像API](https://next-js-portofolio-with-tailwind.vercel.app/catApi)」  
   
   
-- 内容
+- 内容  
     「[The Cat API](https://thecatapi.com/)」というサイトのAPIを使い、クリックイベントで猫画像を表示させます。  
     ページ遷移時に最初に表示する画像は、サーバーサイドレンダリングで取得します。  
   
@@ -67,7 +67,7 @@
 ### 「[ChatBot-Gpt](https://next-js-portofolio-with-tailwind.vercel.app/chatBotGpt)」  
   
   
-- 内容
+- 内容  
     今話題の「[ChatGpt](https://openai.com/blog/chatgpt)」の簡単なクローンを作りました。  
     OpenAI社のAPIを使っています。トークン数を制限しているので、チャットボットのような形でお試し頂けるように設計しました。  
   
@@ -78,7 +78,7 @@
 ### 「[ランダム注文](https://next-js-portofolio-with-tailwind.vercel.app/priceRangeMenuSelector)」  
   
   
-- 内容
+- 内容  
     設定金額からランダムにメニューを取得し、注文するメニューの合計金額を算出します。  
     chatGptを使って作成してみました。
   
