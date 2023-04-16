@@ -38,13 +38,32 @@ export default function Home() {
           <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
             フロントエンジニア志望
           </h3>
-          <p className="text-base md:text-md py-5 md:leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
+          <p className="text-base md:text-md py-5 md:leading-8 text-gray-800 dark:text-white max-w-xl mx-auto ">
             ご覧いただきありがとうございます！
             IOTやAIの拡張性に魅力を感じエンジニアを目指して独学をしております。
             <br />
-            こちらのページ最下部にてお問い合わせフォームをご利用いただけます。宜しければご連絡ください。
+            こちらのページ最下部にてお問い合わせフォームをご利用いただけます。宜しければご連絡ください。{" "}
+            <br />
+            <br />
+            githubのアカウントはこちらです。 <br className="sm:hidden" />
+            <Link href="https://github.com/okirakusan/my-portfolio">
+              <a
+                target="_blank"
+                className="w-10 h-10  inline-block sm:align-bottom"
+              >
+                <Image
+                  src="/github-icon.svg"
+                  alt="github-icon"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                  objectFit="contain"
+                  className="bg-white rounded-full cursor-pointer hover:opacity-60"
+                />
+              </a>
+            </Link>
           </p>
-          <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
+          <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full relative overflow-hidden mt-20 w-80 h-80  md:h-96 md:w-96">
             <Image
               src="/dev-ed-wave.png"
               layout="fill"
@@ -111,7 +130,7 @@ export default function Home() {
       </section>
       <section className="py-10 lg:mb-10">
         <div>
-          <h3 className="text-3xl py-1 dark:text-white ">Portofolio</h3>
+          <h3 className="text-3xl py-1 dark:text-white ">Portfolio</h3>
           <p className="text-base md:text-md py-2 md:leading-8 text-gray-800 dark:text-gray-200">
             <span className=" font-bold">３つの簡単なアプリ</span>
             を掲載しております。
