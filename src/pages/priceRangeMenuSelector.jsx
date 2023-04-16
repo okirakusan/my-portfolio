@@ -23,7 +23,7 @@ const MenuApp = (props) => {
         </h1>
         <button
           onClick={clearMenu}
-          className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 mb-4"
+          className="bg-red-500 text-white px-4 py-2 rounded-full active:bg-yellow-500 hover:bg-red-600 mb-4"
         >
           メニュー再取得
         </button>
@@ -60,7 +60,7 @@ const MenuApp = (props) => {
               <div className="text-lg mb-2">{item.price}円</div>
               <button
                 onClick={() => handleOrder(item)}
-                className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+                className="bg-blue-500 active:bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
               >
                 注文
               </button>
@@ -95,13 +95,13 @@ const MenuApp = (props) => {
                   <div className="flex justify-between items-center">
                     <button
                       onClick={() => addOneMore(item)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+                      className="bg-blue-500 active:bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
                     >
                       +1
                     </button>
                     <button
                       onClick={() => clearOne(item)}
-                      className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
+                      className="bg-red-500 active:bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
                     >
                       -1
                     </button>
@@ -116,7 +116,7 @@ const MenuApp = (props) => {
         <h2 className="text-2xl font-bold my-8">合計: {total}円</h2>
         <button
           onClick={clearOrder}
-          className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
+          className="bg-red-500 active:bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
         >
           全注文クリア
         </button>
