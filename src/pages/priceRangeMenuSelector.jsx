@@ -18,7 +18,8 @@ const MenuApp = (props) => {
     <>
       <section className=" pb-40 dark:text-white h-2/4">
         <h1 className="text-3xl font-bold mb-8 text-center">
-          メニューをランダムに選ぶアプリ
+          メニューをランダムに選ぶアプリ <br />
+          （「こっそりお勘定」）
         </h1>
         <button
           onClick={clearMenu}
@@ -39,8 +40,8 @@ const MenuApp = (props) => {
             className="border border-gray-400 rounded p-2 w-32 dark:text-black"
           />
           <span>円</span>
-          <p>※設定金額でおさまるメニューの組み合わせをランダムに表示します。</p>
-          <p>※メニューの種類は10品ございます。</p>
+          <p>※設定金額の範囲内でメニューをランダムに組み合わせ表示します。</p>
+          <p>※メニューの品数は10品です。</p>
           <p>※メニュー単一での最低価格は800円、最高価格は1400円です。</p>
         </form>
         <ul className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
