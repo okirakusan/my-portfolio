@@ -1,6 +1,6 @@
 # こんにちは！
 
-フロントエンドエンジニア志望の[**okirakusan**](https://github.com/okirakusan)と申します。  
+エンジニア志望の[**okirakusan**](https://github.com/okirakusan)と申します。  
 こちらはポートフォリオ用に作成した Next.js プロジェクトです。  
 **ホームページ**と**３つの簡単なアプリ**を掲載しております。  
 よろしければご覧になっていってください。  

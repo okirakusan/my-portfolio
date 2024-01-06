@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Footer } from "component/layout/Footer";
+import Image from "next/image";
 import Link from "next/link";
 
 const NAV_ITEMS = [
@@ -36,13 +36,17 @@ export default function Home() {
           </h2>
           <p className="text-xl pb-4 dark:text-white">（はらだ ともひろ）</p>
           <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
-            フロントエンジニア志望
+            システムエンジニア志望
           </h3>
           <p className="text-base md:text-md py-5 md:leading-8 text-gray-800 dark:text-white max-w-xl mx-auto ">
-            ご覧いただきありがとうございます！
-            IOTやAIの拡張性に魅力を感じエンジニアを目指して独学をしております。
+            Hello, world!!
             <br />
-            こちらのページ最下部にてお問い合わせフォームをご利用いただけます。宜しければご連絡ください。{" "}
+            私は、ソフトウェア開発の将来性と拡張性に魅力を感じ、エンジニアを目指している者です！
+            <br />
+            このページは、フロントエンド開発を学習するために作成したNext.jsプロジェクトです。
+            至らない所も多々ありますが、よろしければご覧になっていってください。
+            <br />
+            ※こちらのページ最下部に実装しているお問い合わせフォームは、飽くまで学習のためのものですので、実際にご利用いただくのはお控えください。{" "}
             <br />
             <br />
             githubのアカウントはこちらです。 <br className="sm:hidden" />
