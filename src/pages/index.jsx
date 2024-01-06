@@ -163,15 +163,19 @@ export default function Home() {
               className="basis-1/2 justify-between sm:px-4 my-3 lg:my-7"
               key={item.href}
             >
-              <Image
-                src={`${item.image}`}
-                alt={`${item.label}`}
-                className="rounded-lg "
-                width={100}
-                height={60}
-                layout="responsive"
-                objectFit="contain"
-              />
+              <Link href={item.href}>
+                <a className=" hover:opacity-80  cursor-pointer  ">
+                  <Image
+                    src={`${item.image}`}
+                    alt={`${item.label}`}
+                    className="rounded-lg "
+                    width={100}
+                    height={60}
+                    layout="responsive"
+                    objectFit="contain"
+                  />
+                </a>
+              </Link>
             </div>
           ))}
         </div>
