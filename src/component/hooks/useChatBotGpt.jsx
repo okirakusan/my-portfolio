@@ -1,6 +1,5 @@
-import { useState } from "react";
-import openai from "openai";
 import { Configuration, OpenAIApi } from "openai";
+import { useState } from "react";
 
 export const useChatBotGpt = () => {
   const [message, setMessage] = useState("");
